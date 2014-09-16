@@ -95,6 +95,13 @@ module.exports = function (grunt) {
                     }]
             }
         },
+        copy: {
+            lib: {
+                files: [
+                    {expand: true, cwd: 'lib/', src: ['**'], dest: '<%= config.publicRoot %>/'}
+                ]
+            }
+        },
         watch: {
             js: {
                 files: 'src/js/**/*',
@@ -107,6 +114,10 @@ module.exports = function (grunt) {
             html: {
                 files: 'src/**/*.html',
                 tasks: ['htmlmin'],
+            },
+            lib: {
+                files: 'lib/**/*',
+                tasks: ['copy'],
             }
         }
     });
@@ -117,11 +128,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-nodemon');
 
     // Default task.
-    grunt.registerTask('dev', ['minify', 'watch']);
+    grunt.registerTask('dev', ['minify', 'copy', 'watch']);
     grunt.registerTask('minify', ['minifyJs', 'cssmin', 'htmlmin']);
     grunt.registerTask('minifyJs', ['concat', 'ngAnnotate', 'uglify']);
 
