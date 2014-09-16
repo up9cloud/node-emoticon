@@ -1,0 +1,35 @@
+<h3>{{title}}</h3>
+<table class="table table-hover table-responsive table-bordered">
+    <tbody>
+        <tr ng-repeat="emoticon in emoticons">
+            <td>{{emoticon.name}}</td>
+            <td>
+                <button class="btn btn-default" ng-repeat="tag in get.tagsByEmoticonId(emoticon.tagIds)">{{tag}}</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="form-group form-inline">
+    <input class="form-control" type="text" ng-model="req.emoticon_name" placeholder="{{text.name}}">
+    <input class="form-control" type="text" ng-model="req.tag" placeholder="{{text.tag}}">
+    <div class="btn btn-lg btn-default" ng-click="add.emoticon()">add emoticon</div>
+</div>
+<div class="form-group form-inline">
+    <input class="form-control" type="text" ng-model="req.tag_name" placeholder="{{text.name}}">
+    <div class="btn btn-lg btn-default" ng-click="add.tag()">add tag</div>
+</div>
+<div class="form-group form-inline">
+    <input class="form-control" type="text" ng-model="req.emoticonId" placeholder="{{text.emoticonId}}">
+    <input class="form-control" type="text" ng-model="req.tagId" placeholder="{{text.tagId}}">
+    <div class="btn btn-lg btn-default" ng-click="add.map()">add map</div>
+</div>
+<div>req: {{req}}</div>
+<div>res: {{res}}</div>
+<div>emoticons: {{emoticons}}</div>
+<div>tags: {{tags}}</div>
+<div class="form-group form-inline">
+    <div class="btn btn-lg btn-default" ng-click="get.emoticons()">reload emoticons</div>
+</div>
+<div class="form-group form-inline">
+    <div class="btn btn-lg btn-default" ng-click="get.tags()">reload tags</div>
+</div>
