@@ -133,7 +133,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-nodemon');
 
     // Default task.
-    grunt.registerTask('dev', ['minify', 'copy', 'watch']);
+    grunt.registerTask('dev', ['build', 'watch']);
+    grunt.registerTask('build', ['minify', 'copy']);
     grunt.registerTask('minify', ['minifyJs', 'cssmin', 'htmlmin']);
     grunt.registerTask('minifyJs', ['concat', 'ngAnnotate', 'uglify']);
 
