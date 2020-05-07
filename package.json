@@ -29,7 +29,7 @@
         "grunt-contrib-htmlmin": "^0.3.0",
         "grunt-contrib-uglify": "*",
         "grunt-contrib-watch": "*",
-        "grunt-ng-annotate": "^0.3.2",
+        "grunt-ng-annotate": "^4.0.0",
         "grunt-nodemon": "^0.3.0"
     }
 }
